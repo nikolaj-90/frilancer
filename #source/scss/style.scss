@@ -14,8 +14,17 @@
    box-sizing: content-box;
 }
 .header {
-   /* display: flex; */
+   position: absolute;
+   width: 100%;
+   left: 0;
+   top: 0;
+   &__container {
+      display: flex;
+      height: 75px;
+      align-items: center;
+   }
    &__logo {
+      position: relative;
       font-family: Domine;
       font-weight: 700;
       color: #fff;
@@ -32,6 +41,9 @@
    }
 
    &__menu {
+      display: flex;
+      flex: 1 1 auto;
+      justify-content: end;
    }
 
    &__social {
@@ -39,6 +51,7 @@
 }
 .menu {
    &__list {
+      display: flex;
    }
 
    &__item {

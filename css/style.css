@@ -103,9 +103,18 @@ h6 {
 }
 
 .header {
-  /* display: flex; */
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.header__container {
+  display: flex;
+  height: 75px;
+  align-items: center;
 }
 .header__logo {
+  position: relative;
   font-family: Domine;
   font-weight: 700;
   color: #fff;
@@ -118,6 +127,14 @@ h6 {
 }
 .header__logo span {
   color: #314a5b;
+}
+.header__menu {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: end;
+}
+.menu__list {
+  display: flex;
 }
 .main {
   flex: 1 1 auto;
