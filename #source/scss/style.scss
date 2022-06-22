@@ -1,4 +1,59 @@
 // Файл обнуляющих стилей
 @import "_nullstyle";
 
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   min-height: 100%;
+   overflow: hidden;
+}
+[class*="__container"] {
+   max-width: 940px;
+   margin: 0 auto;
+   padding: 0px 15px;
+   box-sizing: content-box;
+}
+.header {
+   /* display: flex; */
+   &__logo {
+      font-family: Domine;
+      font-weight: 700;
+      color: #fff;
+      font-size: 20px;
+      line-height: 315%;
+      padding: 40px 14px 14px 14px;
+      background-color: #fa5c65;
+      letter-spacing: 1.2px;
+      border-radius: 0 0 10px 10px;
 
+      & span {
+         color: #314a5b;
+      }
+   }
+
+   &__menu {
+   }
+
+   &__social {
+   }
+}
+.menu {
+   &__list {
+   }
+
+   &__item {
+   }
+
+   &__link {
+   }
+}
+.twiter {
+   &__linc {
+   }
+}
+
+.main {
+   flex: 1 1 auto;
+}
+.footer {
+}
