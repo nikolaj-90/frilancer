@@ -1,41 +1,56 @@
 // Файл обнуляющих стилей
 @import "_nullstyle";
-
+// * ============================= Обертка
 .wrapper {
    display: flex;
    flex-direction: column;
    min-height: 100%;
    overflow: hidden;
 }
+// * ============================= Ограничевающий контейнер
 [class*="__container"] {
    max-width: 940px;
    margin: 0 auto;
    padding: 0px 15px;
    box-sizing: content-box;
 }
+// * ============================= Header
 .header {
-   position: relative;
+   /* position: fixed; */
    z-index: 50;
-   /* width: 100%;
-   left: 0;
-   top: 0; */
    &__container {
       display: flex;
-      height: 74px;
       align-items: center;
+      justify-content: space-between;
+      min-height: 75px;
    }
 
    .header__logo {
+      display: inline-block;
+      min-height: 75px;
       font-family: Domine;
       font-weight: 700;
       color: #fff;
       font-size: 20px;
-      min-height: 74px;
-      padding: 43px 14px 14px;
+      /* padding: 43px 14px 14px; */
+      padding: 44px 14px 0px 14px;
       margin: 0px 50px 0px 0px;
       background-color: #fa5c65;
       letter-spacing: 1.2px;
       border-radius: 0 0 10px 10px;
+      z-index: 4;
+      @media (max-width: 769px) {
+         & {
+            margin: 0;
+         }
+      }
+      @media (max-width: 400px) {
+         & {
+            font-weight: 400;
+            padding: 35px 8px 0px 8px;
+            border-radius: 0 0 5px 5px;
+         }
+      }
       & span {
          color: #314a5b;
       }
@@ -50,11 +65,38 @@
          margin: 0;
       }
    }
+   &__menu .active {
+      /* display: none; */
+   }
+   &__burger {
+      display: none;
+   }
 
    &__social {
       display: flex;
       & a:not(:last-child) {
          margin: 0px 23px 0px 0px;
+      }
+      @media (max-width: 939px) {
+         &:not(:last-child) {
+            margin: 0px 40px 0px 0px;
+         }
+      }
+      @media (max-width: 768px) {
+         & a:not(:last-child) {
+            margin: 0px 45px 0px 0px;
+         }
+      }
+      @media (max-width: 400px) {
+         & a:not(:last-child) {
+            margin: 0px 20px 0px 10px;
+         }
+         &:not(:last-child) {
+            margin: 0px 10px 0px 0px;
+         }
+         & {
+            padding-top: 20px;
+         }
       }
 
       .twiter__link {
@@ -63,6 +105,7 @@
       }
    }
 }
+
 .menu {
    &__list {
       display: flex;
@@ -78,7 +121,115 @@
       font-weight: 400;
       text-transform: uppercase;
       color: #263742;
-      line-height: 270%;
+      line-height: 180%;
+   }
+}
+@media (max-width: 768px) {
+   .header__container::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 40px;
+      background-color: #fa5c65;
+      z-index: 3;
+   }
+   .header__container .active {
+      left: 0;
+   }
+
+   .header__container {
+      height: 40px;
+   }
+
+   .header__burger {
+      display: block;
+      position: relative;
+      top: 0;
+      right: 0;
+      width: 30px;
+      height: 20px;
+      z-index: 4;
+      @media (max-width: 400px) {
+         & {
+            top: 10px;
+         }
+      }
+      & span {
+         position: absolute;
+         width: 100%;
+         height: 2px;
+         top: 9px;
+         left: 0;
+         background-color: #000;
+      }
+      &::before,
+      &::after {
+         content: "";
+         position: absolute;
+         width: 100%;
+         height: 2px;
+         background-color: #000;
+         transition: all 0.3s ease 0s;
+      }
+      &::before {
+         top: 0;
+      }
+      &::after {
+         bottom: 0;
+      }
+      &.active span {
+         transform: scale(0);
+      }
+      &.active::before {
+         transform: rotate(45deg);
+         background-color: #fff;
+         top: 9px;
+      }
+      &.active::after {
+         transform: rotate(-45deg);
+         background-color: #fff;
+         bottom: 9px;
+      }
+   }
+
+   .header__menu {
+      position: fixed;
+      left: -100%;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fa5c65;
+      overflow: auto;
+      transition: all 0.3s ease 0s;
+   }
+   .menu__list {
+      display: block;
+   }
+   .menu__list li:not(:last-child) {
+      padding: 0px 0px 20px 0px;
+   }
+   .header__menu {
+      display: block;
+      padding: 100px 0px 0px 20px;
+   }
+   .menu__item {
+   }
+   .menu__link {
+      color: #fff;
+      font-size: 24px;
+   }
+}
+@media (max-width: 400px) {
+   /* .header__logo {
+      font-weight: 400;
+   } */
+   .header__container {
+      min-height: 30px;
+   }
+   .header__menu {
+      padding: 60px 0px 0px 20px;
    }
 }
 
