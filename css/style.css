@@ -102,9 +102,29 @@ h6 {
   box-sizing: content-box;
 }
 
+._ibg {
+  position: relative;
+}
+
+._ibg img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .header {
-  /* position: fixed; */
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
   z-index: 50;
+  /* &__burger {
+     display: none;
+  } */
 }
 .header__container {
   display: flex;
@@ -112,15 +132,17 @@ h6 {
   justify-content: space-between;
   min-height: 75px;
 }
+@media (max-width: 769px) {
+  .header__container {
+    min-height: 45px;
+  }
+}
 .header .header__logo {
-  display: inline-block;
-  min-height: 75px;
   font-family: Domine;
   font-weight: 700;
   color: #fff;
   font-size: 20px;
-  /* padding: 43px 14px 14px; */
-  padding: 44px 14px 0px 14px;
+  padding: 44px 14px 14px 14px;
   margin: 0px 50px 0px 0px;
   background-color: #fa5c65;
   letter-spacing: 1.2px;
@@ -154,19 +176,11 @@ h6 {
 .header__menu .active {
   /* display: none; */
 }
-.header__burger {
-  display: none;
-}
 .header__social {
   display: flex;
 }
 .header__social a:not(:last-child) {
   margin: 0px 23px 0px 0px;
-}
-@media (max-width: 939px) {
-  .header__social:not(:last-child) {
-    margin: 0px 40px 0px 0px;
-  }
 }
 @media (max-width: 768px) {
   .header__social a:not(:last-child) {
@@ -174,8 +188,10 @@ h6 {
   }
 }
 @media (max-width: 400px) {
-  .header__social a:not(:last-child) {
-    margin: 0px 20px 0px 10px;
+  .header__social {
+    /*  & a:not(:last-child) {
+       margin: 0px 20px 0px 10px;
+    } */
   }
   .header__social:not(:last-child) {
     margin: 0px 10px 0px 0px;
@@ -330,13 +346,132 @@ h6 {
     padding: 60px 0px 0px 20px;
   }
 }
-.main {
+.page {
   flex: 1 1 auto;
-  /*  &__screen {
+}
+
+.inteligence__main-block {
+  position: relative;
+}
+.inteligence__main-block .inteligence__body {
+  padding: 380px 0px 383px 0px;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 769px) {
+  .inteligence__main-block .inteligence__body {
+    padding: 210px 0px 200px 0px;
+  }
+}
+.inteligence__main-block .inteligence__title {
+  font-family: Montserrat;
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 110.4166666667%;
+  color: #314a5b;
+}
+.inteligence__main-block .inteligence__title span {
+  color: #fa5c65;
+}
+.inteligence__main-block .inteligence__title:not(:last-child) {
+  padding: 0px 0px 10px 0px;
+}
+@media (max-width: 769px) {
+  .inteligence__main-block .inteligence__title {
+    font-size: 35px;
+  }
+}
+.inteligence__main-block .inteligence__sub-title {
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 170%;
+  color: #314a5b;
+}
+.inteligence__main-block .inteligence__sub-title:not(:last-child) {
+  padding: 0px 0px 41px 0px;
+}
+@media (max-width: 769px) {
+  .inteligence__main-block .inteligence__sub-title {
+    font-size: 16px;
+  }
+}
+.inteligence__main-block .inteligence__sub-title:not(:last-child) {
+  padding: 0px 0px 30px 0px;
+}
+.botton-inteligence__link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 64px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 266.6666666667%;
+  background-color: #fa5c65;
+  color: #fff;
+  padding: 0px 41px;
+  border-radius: 10px;
+  font-family: "Open Sans";
+}
+@media (max-width: 769px) {
+  .botton-inteligence__link {
+    min-height: 55px;
+    font-weight: 600;
+    padding: 0px 30px;
+    border-radius: 6px;
+  }
+}
+
+.main__screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /* @media (max-width: 590px) {
      & img {
-        position: absolute;
-        top: 0;
-        left: 0;
-     }
-  } */
+        object-position: 60%;
+     } */
+}
+.main__screen img {
+  -o-object-position: top;
+     object-position: top;
+}
+@media (max-width: 890px) {
+  .main__screen img {
+    -o-object-position: 56%;
+       object-position: 56%;
+  }
+}
+@media (max-width: 660px) {
+  .main__screen img {
+    -o-object-position: 25%;
+       object-position: 25%;
+    opacity: 0.8;
+  }
+}
+@media (max-width: 630px) {
+  .main__screen img {
+    -o-object-position: 50%;
+       object-position: 50%;
+  }
+}
+@media (max-width: 450px) {
+  .main__screen img {
+    -o-object-position: 70%;
+       object-position: 70%;
+  }
+}
+@media (max-width: 330px) {
+  .main__screen img {
+    -o-object-position: 80%;
+       object-position: 80%;
+  }
+}
+@media (max-width: 325px) {
+  .main__screen img {
+    opacity: 0.7;
+  }
 }
